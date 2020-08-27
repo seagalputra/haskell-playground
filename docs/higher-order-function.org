@@ -12,3 +12,38 @@ Setiap fungsi yang terdapat pada bahasa pemrogramman fungsional hanya memuat sat
 multThree :: (Num a) => a -> a -> a -> a
 multThree x y z = x * y * z
 #+END_SRC
+
+Fungsi diatas memerlukan tiga buah input parameter x, y dan z. Namun pada kenyataannya, fungsi tersebut akan tetap mengevaluasi nilainya apabila nilai input hanya satu. Ketika =multThree 5= dijalankan, fungsi tersebut akan menggembalikan fungsi baru dengan tipe =multThree :: (Num a) => a -> a -> a=. Sedangkan jika kita ingin mendapatkan nilai akhir dari fungsi tersebut kita bisa memanggil fungsi =multThree 5= yg telah kita /bind/ sebelumnya.
+
+#+NAME: Ekuivalensi
+#+BEGIN_SRC haskell
+(multhree 3) 5 4
+-- Pemanggilan fungsi tersebut akan menghasilkan nilai yang sama dengan fungsi dibawah ini
+multThree 3 5 4
+#+END_SRC
+
+** The Real Higher-Order Function
+Suatu fungsi dapat menerima fungsi lainnya pada parameter input.
+
+#+NAME: Contoh Higher-Order Function
+#+BEGIN_SRC haskell
+applyTwice :: (a -> a) -> a -> a
+applyTwice f x = f (f x)
+#+END_SRC
+
+Pada fungsi diatas parameter =f= merupakan sebuah fungsi yang memiliki input parameter =a= (dengan kata lain bertipe data apa pun) dan menghasilkan nilai output bertipe data sama dengan inputnya. Fungsi tersebut dievaluasi pada badan fungsi =applyTwice= dengan parameter x sebagai nilai inputnya.
+
+Contoh lain penggunaan /higher order function/
+
+#+NAME: Contoh Higher-Order Function
+#+BEGIN_SRC haskell
+zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith' _ [] _ = []
+zipWith' _ _ [] = []
+zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
+#+END_SRC
+
+Fungsi diatas melakukan manipulasi pada dua buah list dengan menggunakan fungsi lain yang didefinisikan pada input parameter. Jika dibandingkan dengan paradigma imperatif, sering kali digunakan /looping/ serta mensetting nilai variable tertentu hingga melakukan cek terhadap perubahan /state/ yang membutuhkan beberapa baris lebih banyak. Hal tersebut menunjukkan bahwa /higher-order function/ sangatlah /powerful/ untuk membuat /partial application/.
+
+Catatan :
+Potongan kode diatas memiliki tiga buah tipe data yaitu a, b, dan c. Tipe data tersebut memiliki arti bahwa nilai dari tipe data tersebut berbeda. Namun pada kenyataannya, fungsi tersebut juga berlaku untuk tipe data dengan nilai yang sama (a -> a -> a). Hal tersebut dapat dilakukan di Haskell. Jika kita memiliki tipe a, b, c maka kita bisa menggunakannya juga untuk tipe data yang sama (dalam hal ini a, a, a) namun tidak berlaku sebaliknya.
