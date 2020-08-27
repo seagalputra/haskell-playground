@@ -45,5 +45,5 @@ zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
 
 Fungsi diatas melakukan manipulasi pada dua buah list dengan menggunakan fungsi lain yang didefinisikan pada input parameter. Jika dibandingkan dengan paradigma imperatif, sering kali digunakan /looping/ serta mensetting nilai variable tertentu hingga melakukan cek terhadap perubahan /state/ yang membutuhkan beberapa baris lebih banyak. Hal tersebut menunjukkan bahwa /higher-order function/ sangatlah /powerful/ untuk membuat /partial application/.
 
-Catatan :
+*** Catatan :
 Potongan kode diatas memiliki tiga buah tipe data yaitu a, b, dan c. Tipe data tersebut memiliki arti bahwa nilai dari tipe data tersebut berbeda. Namun pada kenyataannya, fungsi tersebut juga berlaku untuk tipe data dengan nilai yang sama (a -> a -> a). Hal tersebut dapat dilakukan di Haskell. Jika kita memiliki tipe a, b, c maka kita bisa menggunakannya juga untuk tipe data yang sama (dalam hal ini a, a, a) namun tidak berlaku sebaliknya.
