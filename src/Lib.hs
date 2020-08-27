@@ -253,3 +253,17 @@ quicksort (x : xs) =
   let smallerSorted = quicksort [ a | a <- xs, a <= x ]
       biggerSorted  = quicksort [ a | a <- xs, a > x ]
   in  smallerSorted ++ [x] ++ biggerSorted
+
+
+-- Curried Function
+multThree :: (Num a) => a -> a -> a -> a
+multThree x y z = x * y * z
+
+compareWithHundred :: (Num a, Ord a) => a -> Ordering
+compareWithHundred = compare 100
+
+divideByTen :: (Floating a) => a -> a
+divideByTen = (/ 10)
+
+sumWithTen :: (Num a) => a -> a
+sumWithTen = (+) 10

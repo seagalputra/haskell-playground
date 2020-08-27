@@ -3,3 +3,12 @@
 Pada bahasa pemrogramman fungsional, fungsi menjadi /first class/ yang berarti segala sesuatu didalamnya berbentuk sebuah fungsi. Fungsi pada bahasa pemrogramman fungsional dapat menerima masukan berupa nilai maupun sebuah fungsi lainnya dan mengembalikan suatu nilai baru. Fungsi yang menjadi /parameter input/ dari fungsi lainnya biasa disebut juga dengan /Higher Order Function/.
 
 /Higher Order Function/ menjadi penting jika anda ingin melakukan suatu komputasi dengan mendefinisikannya daripada menuliskan step by step yang akan mengubah suatu /state/ ataupun melakukan perulangan terhadapnya.
+
+** Curried Function
+Setiap fungsi yang terdapat pada bahasa pemrogramman fungsional hanya memuat satu parameter input. Jadi, bagaimana jika kita memerlukan input parameter lebih dari satu? Jawabannya adalah /curried function/. Contohnya seperti berikut ini
+
+#+NAME: Contoh Function
+#+BEGIN_SRC haskell
+multThree :: (Num a) => a -> a -> a -> a
+multThree x y z = x * y * z
+#+END_SRC
