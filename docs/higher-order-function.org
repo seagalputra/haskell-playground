@@ -1,0 +1,5 @@
+* Higher Order Function
+
+Pada bahasa pemrogramman fungsional, fungsi menjadi /first class/ yang berarti segala sesuatu didalamnya berbentuk sebuah fungsi. Fungsi pada bahasa pemrogramman fungsional dapat menerima masukan berupa nilai maupun sebuah fungsi lainnya dan mengembalikan suatu nilai baru. Fungsi yang menjadi /parameter input/ dari fungsi lainnya biasa disebut juga dengan /Higher Order Function/.
+
+/Higher Order Function/ menjadi penting jika anda ingin melakukan suatu komputasi dengan mendefinisikannya daripada menuliskan step by step yang akan mengubah suatu /state/ ataupun melakukan perulangan terhadapnya.
